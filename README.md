@@ -1,71 +1,143 @@
-# Weather-now
-# Getting Started with Create React App
+# 🌤️ Weather App (React + Open-Meteo)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and beginner-friendly **Weather Application** built with
+**React** and **Open-Meteo API**.\
+The user enters a city name, and the app displays the **current
+temperature**, **wind speed**, and **weather code** using live weather
+data --- no API key required.
 
-## Available Scripts
+------------------------------------------------------------------------
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+✅ Search weather by city name\
+✅ Uses **Open-Meteo Geocoding API** to get latitude & longitude\
+✅ Uses **Open-Meteo Forecast API** to fetch current weather\
+✅ Error handling for invalid city names or API issues\
+✅ Clean and responsive UI built with plain CSS (no Tailwind or
+frameworks)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+------------------------------------------------------------------------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧩 Tech Stack
 
-### `npm test`
+-   **Frontend:** React (with Hooks)
+-   **Styling:** Plain CSS
+-   **API:** [Open-Meteo Weather API](https://open-meteo.com/)
+-   **Language:** JavaScript (ES6+)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+------------------------------------------------------------------------
 
-### `npm run build`
+## ⚙️ Setup Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1️⃣ Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before running this project, ensure: - You have **Node.js** and **npm**
+installed\
+Check using: `bash   node -v   npm -v`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2️⃣ Create and setup project
 
-### `npm run eject`
+``` bash
+npx create-react-app weather-app
+cd weather-app
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3️⃣ Replace the default files
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Replace the code in `src/App.js` with your provided `App.js`.
+-   Add your styles in `src/App.css`.
+-   Keep default `src/index.js` from Create React App.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4️⃣ Run the application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+``` bash
+npm start
+```
 
-## Learn More
+Then open your browser and visit 👉 <http://localhost:3000>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+------------------------------------------------------------------------
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌦️ API Details
 
-### Code Splitting
+### 1. Geocoding API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Used to get latitude & longitude from the city name.\
+Example:
 
-### Analyzing the Bundle Size
+    https://geocoding-api.open-meteo.com/v1/search?name=Paris
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 2. Weather API
 
-### Making a Progressive Web App
+Used to fetch current weather data. Example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&current_weather=true
 
-### Advanced Configuration
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🌈 Weather Code Reference
 
-### Deployment
+  Code     Meaning                      Emoji
+  -------- ---------------------------- -------
+  0        Clear sky                    ☀️
+  1        Mainly clear                 🌤️
+  2        Partly cloudy                ⛅
+  3        Overcast                     ☁️
+  45       Fog                          🌫️
+  48       Depositing rime fog          🌫️
+  51--55   Drizzle (light to dense)     🌦️
+  61--65   Rain (slight to heavy)       🌧️
+  71--75   Snowfall (slight to heavy)   ❄️
+  80--82   Rain showers                 🌦️
+  95--99   Thunderstorms                ⛈️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+------------------------------------------------------------------------
 
-### `npm run build` fails to minify
+## 🧠 How It Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1.  User enters a city name.
+2.  App calls **Geocoding API** → gets coordinates.
+3.  App calls **Weather API** → retrieves current weather.
+4.  Data is displayed: city, country, temperature, wind speed, weather
+    code.
+
+If the city isn't found, an error message appears.
+
+------------------------------------------------------------------------
+
+## 📂 Project Structure
+
+    weather-app/
+    ├── public/
+    │   ├── index.html
+    ├── src/
+    │   ├── App.js
+    │   ├── App.css
+    │   ├── index.js
+    │   └── ...
+    ├── package.json
+    └── README.md
+
+------------------------------------------------------------------------
+
+## 💡 Possible Improvements
+
+-   🌡 Add °C / °F toggle\
+-   🎨 Display weather icons or background changes\
+-   📍 Use geolocation API to detect current city\
+-   💾 Save recent searches\
+-   🔁 Add "Refresh Weather" button\
+-   🌐 Deploy to **Netlify**, **Vercel**, or **GitHub Pages**
+
+------------------------------------------------------------------------
+
+## 🧾 License
+
+Open-source and free for learning or personal use.\
+Data © [Open-Meteo API](https://open-meteo.com/).
+
+------------------------------------------------------------------------
+
+
+
